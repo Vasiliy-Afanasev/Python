@@ -2,20 +2,11 @@ import pytest
 
 from selene import browser
 
-@pytest.fixture
-def teardown():
-    yield
-    print("do something")
 
-#Открыть браузер
-@pytest.fixture()
-def open_browser():
-    browser.config.browser_name = 'firefox'
-    browser.config.hold_browser_open = True
+def test_open_browser(open_browser):
+    print(123)
 
-#Авторизоваться
-@pytest.fixture()
-def authorization():
+def test_authorization():
     # Открыть в браузере сайт "Степик"
     browser.open('https://stepik.org/')
     #browser.config.timeout = 8.0
@@ -28,5 +19,5 @@ def authorization():
     browser.element('.sign-form__btn').click()
 
 
-#vasya1601@mail.ru
-#123-qwe
+
+
